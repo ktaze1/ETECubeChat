@@ -61,7 +61,7 @@ void Client::threadReceived()
   }
 }
 
-void Client::connectSock()
+void Client::connectSocket()
 {
   serverSocket = createSocket();
 
@@ -78,6 +78,28 @@ void Client::sendMessage(Message message)
 {
   if (!message.textMessage.empty()) {
     std::string concatMessage = message.messageTime + " -- " + message.textMessage + '\n';
+    // Encrypt Message
     send(serverSocket, concatMessage.c_str(), concatMessage.size() + 1, 0);
   }
 }
+
+
+/*
+* Encrypt Message before sending to server using Server's public key
+*/
+//void Client::encryptMessage(Message message) {
+    //  unsigned char client_pk[crypto_kx_PUBLICKEYBYTES], client_sk[crypto_kx_SECRETKEYBYTES];
+    //  unsigned char client_rx[crypto_kx_SESSIONKEYBYTES], client_tx[crypto_kx_SESSIONKEYBYTES];
+    //
+    //  /* Generate the client's key pair */
+    //  crypto_kx_keypair(client_pk, client_sk);
+    //
+    //  /* Prerequisite after this point: the server's public key must be known by the client */
+    //
+    //  /* Compute two shared keys using the server's public key and the client's secret key.
+    //     client_rx will be used by the client to receive data from the server,
+    //     client_tx will be used by the client to send data to the server. */
+    //  if (crypto_kx_client_session_keys(client_rx, client_tx, client_pk, client_sk, server_pk) != 0) {
+    //    /* Suspicious server public key, bail out */
+    //  }
+//}

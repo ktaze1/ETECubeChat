@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <sodium.h>
 
 const int MAX_BUFFER_SIZE = 4096;
 
@@ -12,7 +13,7 @@ Server::Server(std::string ipAddress, uint16_t port) : listenerIPAddress(ipAddre
 
 Server::~Server()
 {
-  cleanupWinsock();
+  cleanSocket();
 }
 
 bool Server::initSocket()
@@ -103,6 +104,7 @@ void Server::run()
             closesocket(sock);
             FD_CLR(sock, &master);
           } else {
+              // Message received, decrypt it, then send to other participants
             for (int i = 0; i < master.fd_count; i++) {
               SOCKET outSock = master.fd_array[i];
 
@@ -127,7 +129,7 @@ void Server::run()
   }
 }
 
-void Server::cleanupWinsock() { WSACleanup(); }
+void Server::cleanSocket() { WSACleanup(); }
 
 Message Server::tokenizeBuffer(char* buffer) {
   Message message;

@@ -8,7 +8,6 @@
 
 class Server;
 
-// Callback fct = fct with fct as parameter.
 typedef void (*MessageReceivedHandler)(Server *listener, uint16_t socketID, std::string msg);
 
 class Server {
@@ -20,7 +19,7 @@ public:
   Message tokenizeBuffer(char*);
   bool initSocket();
   void run();
-  void cleanupWinsock();
+  void cleanSocket();
 
 
 private:
@@ -28,5 +27,4 @@ private:
   std::string listenerIPAddress;
   uint16_t listenerPort;
   std::multimap<SOCKET, Message> messageList;
-  // MessageReceivedHandler messageReceived;
 };

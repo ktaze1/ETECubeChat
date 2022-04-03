@@ -19,7 +19,7 @@ int main()
 
   if (client->initSocket()) {
 
-    client->connectSock();
+    client->connectSocket();
 
     client->receievedThread = std::thread([&] { client->threadReceived(); });
 

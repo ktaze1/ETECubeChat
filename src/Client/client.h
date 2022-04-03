@@ -14,9 +14,9 @@ public:
   Client();
   ~Client();
   bool initSocket();
-  void connectSock();
-  /*void sendMsg(std::string txt);*/
+  void connectSocket();
   void sendMessage(Message message);
+  // void encryptMessage(Message message);
   std::thread receievedThread;
   void threadReceived();
   std::string username;
