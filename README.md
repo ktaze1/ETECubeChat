@@ -8,7 +8,7 @@ Simple Chat Application based on TCP/IP, made with C++
 
    * .clang-format is made according to my own preference, you can change it to your liking.
 
-   * added `libsodium` for encrpytion/decrpytion. Plan was to secure messages with RSA (Rivest–Shamir–Adleman) public-key cryptosystem, it has some API for the encryption flow but couldn't finished it on time.
+   * added `libsodium` for encrpytion/decrpytion. Plan was to secure messages with RSA (Rivestâ€“Shamirâ€“Adleman) public-key cryptosystem, it has some API for the encryption flow but couldn't finished it on time.
 
    * Every C++ chat application example I saw on the internet was either based on QT's example or done in UNIX/LINUX, but none were using WinSocks or CMAKE whatsoever  
 
@@ -27,3 +27,8 @@ Simple Chat Application based on TCP/IP, made with C++
    * Some functions can be decoupled. Not every function has 100% single responsibility, but it's not too bad.
 
    * There are some warnings. Treat Warnings as Error is closed now but regardless it's technical debt.
+
+
+### Screenshot
+
+![image](https://user-images.githubusercontent.com/22341988/161442552-7752dcf0-8ca9-40c3-8145-8643f99ce5e9.png)
