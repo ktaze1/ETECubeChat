@@ -14,6 +14,8 @@ Simple Chat Application based on TCP/IP, made with C++
 
    * Very little comments on the code, pretty straightforward
 
+   * To make it work, either create to src/libsodium folder and clone [libsodium](https://github.com/jedisct1/libsodium/tree/4f5e89fa84ce1d178a6765b8b46f2b6f91216677) into it or comment out its part on CMakeLists.txt
+
 ### To-Do:
 
    * Implement the encryption work-flow
